@@ -1,0 +1,25 @@
+{
+    "require": {
+        "codeception/codeception": "4.*",
+        "codeception/module-webdriver": "1.*",
+        "codeception/module-asserts": "2.*",
+        "codeception/module-rest": "2.*",
+        "codeception/module-phpbrowser": "2.*",
+        "codeception/module-db": "2.*",
+        "codeception/specify": "*",
+        "codeception/verify": "*",
+        "codeception/robo-paracept": "^2.0",
+        "vlucas/phpdotenv": "^3.3",
+        "smalot/pdfparser": "*",
+        "friendsofphp/php-cs-fixer": "^3",
+        "ramsey/uuid": "^4.3",
+        "ext-pdo": "*",
+        "ext-json": "*",
+        "ext-dom": "*",
+        "ext-ftp": "*"
+    },
+    "scripts": {
+        "php-cs-fixer": "php-cs-fixer fix ./tests/acceptance ./tests/_support/Page --config=php_cs_fixer.php --dry-run --diff",
+        "auto-fixer": "php-cs-fixer fix ./tests/acceptance ./tests/_support/Page --config=php_cs_fixer.php"
+    }
+}

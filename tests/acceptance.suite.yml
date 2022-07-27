@@ -1,0 +1,26 @@
+actor: AcceptanceTester
+
+extensions:
+    enabled:
+        - Codeception\Extension\RunProcess:
+            - chromedriver --url-base=/wd/hub
+modules:
+    enabled:
+        - \Helper\Acceptance
+        - WebDriver:
+              browser: 'chrome'
+              url: 'https://clm.qa.nexxus.site'
+              port: '9515'
+              restart: true
+    config:
+        WebDriver:
+            browser: 'chrome'
+            window_size: maximize
+            capabilities:
+                chromeOptions:
+                    args:
+                        - '--window-size=1920,1080'
+                        - '--no-sandbox'
+                        - '--disable-dev-shm-usage'
+                        - '--disable-gpu'
+                        - '--disable-notifications'
