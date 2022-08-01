@@ -1,1 +1,1 @@
-tests/acceptance/InboundFilesCest.php:goToInboundFiles
+tests/acceptance/ProductsPageCest.php:createNewProduct

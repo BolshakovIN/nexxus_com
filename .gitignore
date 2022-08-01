@@ -1,2 +1,5 @@
 .idea/
 /vendor/
+chromedriver.exe
+chromedriver
+.env.local

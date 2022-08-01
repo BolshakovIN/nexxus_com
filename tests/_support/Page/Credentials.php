@@ -9,6 +9,6 @@ class Credentials
 
     public function getCredentials(): array
     {
-        return $userCredentials = self::USER_CREDENTIALS;
+        return self::USER_CREDENTIALS;
     }
 }

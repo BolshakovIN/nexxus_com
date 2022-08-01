@@ -4,6 +4,7 @@ namespace Page;
 
 use AcceptanceTester;
 use Exception;
+use Page\Credentials;
 
 class Auth
 {
@@ -18,13 +19,15 @@ class Auth
     /** Линк разлогина */
     private const LOGOUT_LINK = 'Logout';
     /** pass and login*/
-    private const USER_CREDENTIALS = ['ivan.bolshakov@epicsoftwaredev.com', 'volvoman101'];
+    //private const USER_CREDENTIALS = ['ivan.bolshakov@epicsoftwaredev.com', 'volvoman101'];
 
     private AcceptanceTester $tester;
+    private Credentials $credentials;
 
-    public function __construct(AcceptanceTester $tester)
+    public function __construct(AcceptanceTester $tester, Credentials $credentials)
     {
         $this->tester = $tester;
+        $this->credentials = $credentials;
     }
 
     /**
@@ -35,7 +38,8 @@ class Auth
     public function login():void
     {
         $I = $this->tester;
-        [$username, $password] = self::USER_CREDENTIALS;
+        $credentials = $this->credentials;
+        [$username, $password] = $credentials -> getCredentials();
         $I->amOnPage(self::URL);
         $I->wait('2');
         $I->seeElementInDOM(self::EMAIL_FIELD);
@@ -49,7 +53,7 @@ class Auth
         $I->clickWithLeftButton(self::BUTTON);
         $I->waitForElementClickable(self::BUTTON);
         $I->clickWithLeftButton(self::BUTTON);
-        $I->waitForText('Relationships');
+        $I->waitForText('Relationships',30);
         $I->see('Relationships');
     }
 

@@ -3122,4 +3122,5 @@ trait AcceptanceTesterActions
     public function performOn($element, $actions, int $timeout = 10): void {
         $this->getScenario()->runStep(new \Codeception\Step\Action('performOn', func_get_args()));
     }
+
 }

@@ -3,21 +3,17 @@
 namespace Page;
 use AcceptanceTester;
 use Exception;
+use Page\Base;
 
-class Db
+class Db extends Base
 {
-    private $tester;
 
-    public function __construct($tester)
-    {
-        $this -> tester = $tester;
-    }
     /**
      * Подключение к базе
      */
     public function connectDb(): void
     {
         $I = $this->tester;
-        $I->amConnectedToDatabase('default');
+        $I->amConnectedToDatabase();
     }
 }

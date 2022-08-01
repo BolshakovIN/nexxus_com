@@ -4,13 +4,15 @@ namespace Page;
 
 use AcceptanceTester;
 
+
 class Base
 {
-    protected AcceptanceTester $tester;
-
-    public function __construct(AcceptanceTester $I)
+    /**
+     * @param AcceptanceTester $tester
+     */
+    public function __construct(protected AcceptanceTester $tester)
     {
-        $this->tester = $I;
+
     }
 
 }

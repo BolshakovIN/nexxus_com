@@ -3,20 +3,38 @@
 namespace acceptance;
 use Page\Auth;
 use Page\Main;
+use Page\InboundFiles;
+
 
 class InboundFilesCest
 {
-    /** Переход в InboundFiles
+    /** Переход в Sales Files
      * @throws \Exception
      */
-    public function goToInboundFiles(
+    public function goToSalesFiles(
         Main $main,
-        Auth $auth
-
+        Auth $auth,
+        InboundFiles $inboundFiles
     ):void
     {
         $auth -> login();
         $main -> goToDso();
-        $main -> switchToInboundSalesFiles();
+        $main -> goToInboundFiles();
+        $inboundFiles -> switchToInboundSalesFiles();
+    }
+
+    /**Переход в Inventory Files
+     * @throws \Exception
+     */
+    public function goToInventoryFiles(
+        Auth $auth,
+        Main $main,
+        InboundFiles $inboundFiles
+    ):void
+    {
+        $auth -> login();
+        $main -> goToDso();
+        $main -> goToInboundFiles();
+        $inboundFiles -> switchToInventoryFiles();
     }
 }
