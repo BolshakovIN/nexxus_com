@@ -12,6 +12,14 @@ modules:
               url: 'https://clm.qa.nexxus.site'
               port: '9515'
               restart: true
+        - REST:
+              url: https://clm.qa.nexxus.site/
+              depends: PhpBrowser
+              shortDebugResponse: 300
+        - Db:
+              dsn: 'mysql:host=172.16.1.10;port=1433;dbname=nexxus-qa'
+                  user: 'nexxus-app'
+                  password: 'Z6swbj46etW3AavtzFQgR2vM'
     config:
         WebDriver:
             browser: 'chrome'

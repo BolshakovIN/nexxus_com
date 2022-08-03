@@ -1,1 +1,1 @@
-tests/acceptance/ProductsPageCest.php:createNewProduct
+tests/acceptance/InboundFilesCest.php:uploadSalesFile

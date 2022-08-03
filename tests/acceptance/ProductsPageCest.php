@@ -19,6 +19,7 @@ class ProductsPageCest
     {
         $auth -> login();
         $main -> goToDso();
+        $main -> goToProductPage();
         $products -> createNewProduct();
     }
 }

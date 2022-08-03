@@ -2,8 +2,10 @@
 
 namespace acceptance;
 use Page\Auth;
+use Page\InboundFillesForms\InboundSales;
 use Page\Main;
 use Page\InboundFiles;
+
 
 
 class InboundFilesCest
@@ -36,5 +38,19 @@ class InboundFilesCest
         $main -> goToDso();
         $main -> goToInboundFiles();
         $inboundFiles -> switchToInventoryFiles();
+    }
+
+    public function uploadSalesFile(
+        Auth $auth,
+        Main $main,
+        InboundFiles $inboundFiles,
+        InboundSales $inboundSales
+    ):void
+    {
+        $auth -> login();
+        $main -> goToDso();
+        $main -> goToInboundFiles();
+        $inboundFiles -> switchToInboundSalesFiles();
+        $inboundSales ->aploadFile();
     }
 }
