@@ -8,9 +8,10 @@ use Codeception\Util\HttpCode;
 class APImethods extends Base
 
 {
-    public function get()
+    public function getUser($clientId)
     {
         $I = $this->tester;
-        $I ->sendGet('/api/client/', ['clientId'=>'9826']);
+        $I ->sendGet('/api/client/', ['clientId'=>$clientId]);
+        $I -> seeResponseCodeIs(HttpCode::OK);
     }
 }

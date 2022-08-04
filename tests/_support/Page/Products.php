@@ -4,6 +4,7 @@ namespace Page;
 
 use AcceptanceTester;
 use Exception;
+use Page\TestData\ForProducts;
 
 /** страница Products */
 class Products
@@ -48,13 +49,14 @@ class Products
      */
     public function createNewProduct():void
     {
-        $I = $this ->tester;
         $upc = mt_rand(9000000000000,10000000000000);
+        $I = $this ->tester;
+
         $I -> clickWithLeftButton(self::NEW_PRODUCT);
         $I -> waitForElementClickable(self::NEW_PRODUCT_NAME_FIELD);
         $I -> seeElement(self::NEW_PRODUCT_NAME_FIELD);
         // name product
-        $I -> fillField(self::NEW_PRODUCT_NAME_FIELD, 'test');
+        $I -> fillField(self::NEW_PRODUCT_NAME_FIELD, ForProducts::PRODUCT_NAME );
         //category product
         $I -> clickWithLeftButton(self::CATEGORY_NAME_BUTTON);
         $I -> clickWithLeftButton(self::BOOKS_CATEGORY_NAME);
@@ -64,15 +66,23 @@ class Products
         $I -> waitForElementClickable(self::BOOKS_SUB_CATEGORY_NAME);
         $I -> clickWithLeftButton(self::BOOKS_SUB_CATEGORY_NAME);
         // type IDs
+        $I -> waitForElementClickable(self::TYPE_IDS_BUTTON);
         $I -> clickWithLeftButton(self::TYPE_IDS_BUTTON);
+        $I -> waitForElementClickable(self::GLOBAL_TYPE_IDS_NAME);
         $I -> clickWithLeftButton(self::GLOBAL_TYPE_IDS_NAME);
         //global ID type
         $I -> waitForElementClickable(self::GLOBAL_ID_NAME_FIELD);
         $I -> clickWithLeftButton(self::GLOBAL_ID_NAME_FIELD);
+        $I -> waitForElementClickable(self::UPC_TYPE);
         $I -> clickWithLeftButton(self::UPC_TYPE);
         $I->wait(2);
         $I -> clickWithLeftButton(self::GLOBAL_ID_VALUE_FIELD);
         $I -> wait(5);
         $I -> fillField(self::GLOBAL_ID_VALUE_FIELD, $upc);
+        $I -> clickWithLeftButton(self::CREATE);
+        $I -> wait(5);
+        $I -> clickWithLeftButton(self::CREATE);
+
+
     }
 }
