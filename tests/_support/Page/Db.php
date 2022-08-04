@@ -1,6 +1,7 @@
 <?php
 
 namespace Page;
+
 use AcceptanceTester;
 use Exception;
 use Page\Base;

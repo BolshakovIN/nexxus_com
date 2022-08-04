@@ -35,7 +35,7 @@ class Auth
      *
      * @throws Exception
      */
-    public function login():void
+    public function login(): void
     {
         $I = $this->tester;
         $credentials = $this->credentials;
@@ -53,20 +53,19 @@ class Auth
         $I->clickWithLeftButton(self::BUTTON);
         $I->waitForElementClickable(self::BUTTON);
         $I->clickWithLeftButton(self::BUTTON);
-        $I->waitForText('Relationships',30);
+        $I->waitForText('Relationships', 30);
         $I->see('Relationships');
     }
 
     /** Разлогиниться в приложении */
-    public function logout():void
+    public function logout(): void
     {
         $I = $this->tester;
         $I -> clickWithLeftButton('body > section > header > div:nth-child(3) > div.el-dropdown.actions-wrapper__popover > div > span');
         $I -> wait(3);
         $I -> click(self::LOGOUT_LINK);
-        $I -> waitForText('Выберите учетную запись',20);
+        $I -> waitForText('Выберите учетную запись', 20);
         $I -> see('Выберите учетную запись');
         $I -> see('Используйте другую учетную запись');
     }
 }
-

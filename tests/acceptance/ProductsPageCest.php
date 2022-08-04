@@ -1,11 +1,11 @@
 <?php
 
 namespace acceptance;
+
 use Page\APImethods;
 use Page\Auth;
 use Page\Main;
 use Page\Products;
-
 
 class ProductsPageCest
 {
@@ -16,8 +16,7 @@ class ProductsPageCest
         Auth $auth,
         Main $main,
         Products $products
-    ):void
-    {
+    ): void {
         $auth -> login();
         $main -> goToDso();
         $main -> goToProductPage();
@@ -26,8 +25,7 @@ class ProductsPageCest
 
     public function goToDB(
         APImethods $APImethods
-    ):void
-    {
+    ): void {
         $APImethods ->getUser('98261111');
     }
 }

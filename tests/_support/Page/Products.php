@@ -47,16 +47,16 @@ class Products
      * создание нового продукта
      * @throws Exception
      */
-    public function createNewProduct():void
+    public function createNewProduct(): void
     {
-        $upc = mt_rand(9000000000000,10000000000000);
+        $upc = mt_rand(9000000000000, 10000000000000);
         $I = $this ->tester;
 
         $I -> clickWithLeftButton(self::NEW_PRODUCT);
         $I -> waitForElementClickable(self::NEW_PRODUCT_NAME_FIELD);
         $I -> seeElement(self::NEW_PRODUCT_NAME_FIELD);
         // name product
-        $I -> fillField(self::NEW_PRODUCT_NAME_FIELD, ForProducts::PRODUCT_NAME );
+        $I -> fillField(self::NEW_PRODUCT_NAME_FIELD, ForProducts::PRODUCT_NAME);
         //category product
         $I -> clickWithLeftButton(self::CATEGORY_NAME_BUTTON);
         $I -> clickWithLeftButton(self::BOOKS_CATEGORY_NAME);
@@ -82,7 +82,5 @@ class Products
         $I -> clickWithLeftButton(self::CREATE);
         $I -> wait(5);
         $I -> clickWithLeftButton(self::CREATE);
-
-
     }
 }

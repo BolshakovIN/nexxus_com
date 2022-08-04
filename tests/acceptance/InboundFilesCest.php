@@ -1,12 +1,11 @@
 <?php
 
 namespace acceptance;
+
 use Page\Auth;
 use Page\InboundFillesForms\InboundSales;
 use Page\Main;
 use Page\InboundFiles;
-
-
 
 class InboundFilesCest
 {
@@ -17,8 +16,7 @@ class InboundFilesCest
         Main $main,
         Auth $auth,
         InboundFiles $inboundFiles
-    ):void
-    {
+    ): void {
         $auth -> login();
         $main -> goToDso();
         $main -> goToInboundFiles();
@@ -32,8 +30,7 @@ class InboundFilesCest
         Auth $auth,
         Main $main,
         InboundFiles $inboundFiles
-    ):void
-    {
+    ): void {
         $auth -> login();
         $main -> goToDso();
         $main -> goToInboundFiles();
@@ -45,8 +42,7 @@ class InboundFilesCest
         Main $main,
         InboundFiles $inboundFiles,
         InboundSales $inboundSales
-    ):void
-    {
+    ): void {
         $auth -> login();
         $main -> goToDso();
         $main -> goToInboundFiles();

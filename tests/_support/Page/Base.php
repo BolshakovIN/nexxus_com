@@ -4,7 +4,6 @@ namespace Page;
 
 use AcceptanceTester;
 
-
 class Base
 {
     /**
@@ -12,7 +11,5 @@ class Base
      */
     public function __construct(protected AcceptanceTester $tester)
     {
-
     }
-
 }

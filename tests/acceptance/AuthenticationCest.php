@@ -9,10 +9,9 @@ class AuthenticationCest
      *
      * @throws \Exception
      */
-    public function login (
+    public function login(
         Auth $auth
-    ):void
-    {
+    ): void {
         $auth -> login();
     }
 
@@ -21,11 +20,9 @@ class AuthenticationCest
      *
      * @throws \Exception
      */
-    public function logout
-    (
+    public function logout(
         Auth $auth
-    ):void
-    {
+    ): void {
         $auth -> login();
         $auth -> logout();
     }

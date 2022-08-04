@@ -55,7 +55,7 @@ class Main
      * Go to Product page
      * @throws Exception
      */
-    public function goToProductPage():void
+    public function goToProductPage(): void
     {
         $I = $this->tester;
         $I -> clickWithLeftButton(self::PRODUCT_BUTTON);

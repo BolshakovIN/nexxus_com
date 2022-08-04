@@ -1,6 +1,7 @@
 <?php
 
 namespace Page\InboundFillesForms;
+
 use AcceptanceTester;
 
 class InboundSales
@@ -18,7 +19,7 @@ class InboundSales
         $I -> fillField('[name="clientId"]', 'CEFCO');
         $I -> waitForElementClickable('body > div.el-select-dropdown.el-popper > div.el-scrollbar > div.el-select-dropdown__wrap.el-scrollbar__wrap > ul > li:nth-child(1) > span');
         $I -> click('body > div.el-select-dropdown.el-popper > div.el-scrollbar > div.el-select-dropdown__wrap.el-scrollbar__wrap > ul > li:nth-child(1) > span');
-       // $I -> attachFile('.upload__text','CEFCO_propane_test (9).xlsx');
+        // $I -> attachFile('.upload__text','CEFCO_propane_test (9).xlsx');
         $I->sendPost('https://clm.qa.nexxus.site/api/diofile/inbound/upload', [], ['file'=>[
 
         ]

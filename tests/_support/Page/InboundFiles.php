@@ -21,7 +21,7 @@ class InboundFiles
     /**
      * @throws Exception
      */
-    public function switchToInboundSalesFiles():void
+    public function switchToInboundSalesFiles(): void
     {
         $I = $this->tester;
         $I -> waitForElementClickable(self::INBOUND_SALES);
@@ -34,7 +34,7 @@ class InboundFiles
     /**
      * @throws Exception
      */
-    public function switchToInventoryFiles():void
+    public function switchToInventoryFiles(): void
     {
         $I = $this->tester;
         $I -> waitForElementClickable(self::INVENTORY_FILES);

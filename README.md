@@ -82,3 +82,56 @@
 Далее в разделе `Use alternative configuration file` справа кликаем на иконку с `"Ключом и шестерёнкой"` и заполняем поле `Path to Сodeception executable`  `[PathToProject]/vendor/codeception/codeception/codecept`
 и кликаем на иконку обновить, ниже должна появиться версия текущего Codeception.
 Не забыть выбрать интерпретатор PHP.
+
+
+#### 1.4 Установка PHP fixer
+#Устанавливаем через composer и настраиваем PHPCSFixer в Symfony-проекте:
+    *cd /ваш/проект*
+    *composer req --dev friendsofphp/php-cs-fixer*
+
+Если используете docker-compose, то устанавливайте в нём
+
+docker-compose exec web composer req --dev friendsofphp/php-cs-fixer
+
+<details>
+  <summary>Создаём в корне проекта файл .php_cs</summary> 
+
+    <?php
+
+        $finder = PhpCsFixer\Finder::create()
+        ->in([
+        __DIR__ . '/src',
+        __DIR__ . '/tests'
+        ])
+        ;
+        
+        return PhpCsFixer\Config::create()
+        ->setRules([
+        '@Symfony' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'concat_space' => ['spacing' => 'one'],
+        'increment_style' => ['style' => 'post'],
+        'no_extra_blank_lines' => ['tokens' => [
+        'extra',
+        'parenthesis_brace_block',
+        'square_brace_block',
+        'throw',
+        'use',
+        ]],
+        'no_superfluous_phpdoc_tags' => false,
+        'phpdoc_align' => false,
+        'phpdoc_annotation_without_dot' => false,
+        'trailing_comma_in_multiline_array' => false,
+        'yoda_style' => false
+        ])
+        ->setFinder($finder)
+    ;
+</details>
+
+Теперь вы можете запустить проверку всего проекта (или конкретного пути) с помощью команды
+
+#только поиск ошибок
+    *./vendor/bin/php-cs-fixer  fix --dry-run --diff ./*
+#поиск ошибок и их автоматический фикс
+    *./vendor/bin/php-cs-fixer fix ./*
+

@@ -6,7 +6,6 @@ use AcceptanceTester;
 use Codeception\Util\HttpCode;
 
 class APImethods extends Base
-
 {
     public function getUser($clientId)
     {
