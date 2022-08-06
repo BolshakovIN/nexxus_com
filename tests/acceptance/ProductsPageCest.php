@@ -2,6 +2,7 @@
 
 namespace acceptance;
 
+use Exception;
 use Page\APImethods;
 use Page\Auth;
 use Page\Main;
@@ -10,7 +11,7 @@ use Page\Products;
 class ProductsPageCest
 {
     /** Create new product
-     * @throws \Exception
+     * @throws Exception
      */
     public function createNewProduct(
         Auth $auth,
